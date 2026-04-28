@@ -10,7 +10,7 @@ class PetsDao {
   }
 
   async getPetsBySpecie(specie){
-    return await PetModel.find({ specie: new RegExp(`^${specie}$/`, 'i') });
+    return await PetModel.find({ specie: new RegExp(`^${specie}$`, 'i') });
   }
 
   async createPet(petData){

@@ -6,7 +6,7 @@ import ValidationError from "../utils/errors/ValidationError.js";
 import NotFoundError from "../utils/errors/NotFoundError.js";
 
 class AdoptionsService {
-  constructor(adoptionRepository = new AdoptionsRepository(), userRepository = new UsersRepository(), petRepository = new PetRepository()){
+  constructor(adoptionRepository = new AdoptionsRepository(), userRepository = new UsersRepository(), petRepository = new PetsRepository()){
     this.adoptionRepository = adoptionRepository;
     this.userRepository = userRepository;
     this.petRepository = petRepository;
@@ -51,9 +51,16 @@ class AdoptionsService {
   async deleteAdoption(adoptionId){
     if(!adoptionId) throw new ValidationError('Adoption ID is required');
 
+    const adoption = await this.adoptionRepository.getAdoptionById(adoptionId);
+    if(!adoption) throw new NotFoundError('Adoption not found');
+
+    await this.petRepository.updatePet(adoption.pet._id, { adopted: false, owner: null });
+    await this.userRepository.updateUser(adoption.owner._id, { $pull: { pets: adoption.pet._id } });
+
     const deletedAdoption = await this.adoptionRepository.deleteAdoption(adoptionId);
+    
     return deletedAdoption;
   }
 }
 
-export default AdoptionsRepository;
+export default AdoptionsService;

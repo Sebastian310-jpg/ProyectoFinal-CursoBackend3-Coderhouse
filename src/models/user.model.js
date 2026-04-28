@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema(
     },
     pets: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'pets'
+      ref: 'Pet'
     }]
   },
   {
