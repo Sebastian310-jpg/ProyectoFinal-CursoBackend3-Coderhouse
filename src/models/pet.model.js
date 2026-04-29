@@ -19,6 +19,10 @@ const petSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    image: {
+      type: String,
+      default: ''
+    },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',

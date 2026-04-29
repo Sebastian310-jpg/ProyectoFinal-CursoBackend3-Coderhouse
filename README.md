@@ -1,119 +1,263 @@
-Entregable final: Tests funcionales + Docker image (URL)
+# Pet Adoption API
 
-Introducción
-¿Estás listo para demostrar todo lo aprendido en este programa? En esta unidad final, aplicarás tus conocimientos para desarrollar tests funcionales exhaustivos para el router adoption.router.js, construirás una imagen Docker optimizada y segura, y documentarás tu proyecto con un ReadMe que incluya la URL pública de la imagen en DockerHub. Este entregable es una oportunidad para integrar pruebas, despliegue y documentación en un flujo profesional, reflejando las buenas prácticas industriales que hemos abordado durante el curso. Al completar esta unidad, estarás preparado para enfrentar desafíos reales en proyectos backend con Node.js, asegurando calidad, seguridad y despliegue eficiente.
+Este es mi proyecto final del curso Backend 3 de Coderhouse. Se trata de una API REST desarrollada con Node.js, Express y MongoDB que permite gestionar usuarios, mascotas y adopciones. Además, incluye documentación con Swagger, tests funcionales para `adoptions.routes.js` y dockerización para facilitar su ejecución y despliegue.
 
-Consigna
-Diseño y ejecución de tests funcionales (ANALYZE)
-Los tests funcionales validan que cada endpoint del router adoption.router.js cumple con los requisitos esperados, simulando escenarios reales de uso. Para ello, es fundamental diseñar pruebas que cubran casos positivos, negativos y de borde, utilizando mocks y fakes para aislar dependencias externas.
+---
 
-Conceptos clave:
-Mocks y fakes: Objetos simulados que reemplazan dependencias para controlar el entorno de pruebas.
-Cobertura de pruebas: Asegurar que todos los endpoints y rutas estén cubiertos.
-Ejecución automatizada: Uso de frameworks como Jest o Mocha para correr tests de forma repetible.
-Ejemplo: Para el endpoint POST /adoption, se debe probar la creación exitosa, manejo de datos inválidos y respuesta ante errores del servidor.
-Construcción y optimización de imágenes Docker (APPLY)
-Crear un Dockerfile eficiente es clave para garantizar imágenes reproducibles y optimizadas. Se recomienda:
-Usar imágenes base ligeras (e.g., node:alpine).
-Minimizar capas combinando comandos.
-Copiar solo archivos necesarios para reducir el tamaño.
-Definir variables de entorno y puertos expuestos.
-dockerfile
+## Tecnologías utilizadas
 
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* Jest
+* Supertest
+* MongoDB Memory Server
+* Swagger
+* Docker
 
-FROM node:14-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-COPY . .
-EXPOSE 3000
-CMD ["node", "server.js"]
-Seguridad y gestión en DockerHub (APPLY)
-Al subir imágenes a DockerHub, es vital:
-Escanear imágenes para vulnerabilidades.
-Usar etiquetas claras y versionadas.
-Configurar repositorios privados si es necesario.
-Mantener credenciales seguras y usar tokens de acceso.
-Documentación con Swagger/OpenAPI (APPLY)
-La documentación interactiva facilita la comprensión y uso de la API. Utiliza swagger-jsdoc para generar especificaciones OpenAPI y Swagger UI para visualizarlas.
-Define rutas, métodos, parámetros y respuestas.
-Incluye ejemplos claros.
-Actualiza el ReadMe con el enlace a la documentación y la imagen Docker.
-Despliegue y administración en entornos cloud (APPLY)
-Implementa flujos CI/CD para automatizar la construcción, prueba y despliegue de contenedores.
-Configura pipelines que ejecuten tests y construyan imágenes.
-Despliega en proveedores cloud compatibles con contenedores (AWS, Azure, GCP).
-Monitorea logs y rendimiento para producción.
-Recuerda: La integración continua mejora la calidad y reduce errores en producción.
+---
 
-Contexto
-En un entorno profesional, la integración de pruebas funcionales, construcción de imágenes Docker seguras y documentación clara es esencial para garantizar la calidad y mantenibilidad de aplicaciones backend. Este entregable simula un flujo real de trabajo donde el desarrollador debe asegurar que la API funciona correctamente, que la imagen Docker es eficiente y segura, y que la documentación facilita la colaboración y despliegue.
-Además, subir la imagen a DockerHub y documentar su uso en el ReadMe permite que otros equipos o servicios consuman la aplicación fácilmente, fomentando la colaboración y la integración en pipelines de CI/CD.
-Este enfoque integral refleja las mejores prácticas industriales y prepara al desarrollador para desafíos reales en proyectos de backend con Node.js y Docker.
+## Funcionalidades
 
-Práctica
-Para completar este entregable, sigue estos pasos detallados:
-Desarrolla tests funcionales:
-Crea pruebas para todos los endpoints del router adoption.router.js.
-Usa mocks y fakes para aislar dependencias externas.
-Asegura cobertura completa y casos variados (éxito, error, validación).
-Ejecuta y verifica que todos los tests pasen correctamente.
-Construye la imagen Docker:
-Crea un Dockerfile optimizado siguiendo buenas prácticas.
-Construye la imagen localmente y prueba su ejecución.
-Verifica que la aplicación funcione correctamente dentro del contenedor.
-Sube la imagen a DockerHub:
-Crea un repositorio en DockerHub.
-Etiqueta y sube la imagen.
-Realiza un escaneo básico de seguridad.
-Documenta el proyecto:
-Actualiza el ReadMe.md con:
-URL al repositorio con los tests y Dockerfile.
-URL pública de la imagen en DockerHub.
-Instrucciones claras para ejecutar la imagen y correr los tests.
-Evidencia de pruebas (logs o capturas de pantalla).
-Entrega:
-Proporciona la URL al repositorio completo.
-Asegúrate que el ReadMe contenga toda la información solicitada.
-Consejos:
-Usa comandos reales y claros en la documentación.
-Mantén la estructura del proyecto limpia y organizada.
-Revisa que las URLs sean accesibles públicamente.
-Evaluación:
-Se revisará la funcionalidad y cobertura de los tests.
-Se evaluará la calidad y optimización del Dockerfile.
-Se verificará la correcta subida y etiquetado de la imagen en DockerHub.
-Se comprobará la claridad y completitud del ReadMe.
-¡Mucho éxito!
-Entregable
-Entregar un documento en Google Docs que contenga:
-El documento debe incluir las siguientes secciones:
-Estructura del proyecto
-Descripción de la estructura del repositorio.
-Árbol de directorios del proyecto (escrito o generado por comando).
-Explicación breve del propósito de los archivos y carpetas principales.
-Tests funcionales
-Código completo de los tests funcionales correspondientes a todos los endpoints del router adoption.router.js.
-Explicación de qué valida cada grupo de tests.
-Evidencia de ejecución de los tests:
-Logs completos pegados en el documento o
-Capturas de pantalla legibles.
-Dockerización
-Contenido completo del Dockerfile optimizado utilizado para el proyecto.
-Explicación de las decisiones de optimización (base image, capas, dependencias, etc.).
-Log de construcción de la imagen Docker.
-Imagen Docker
-Nombre y tag de la imagen Docker generada.
-Evidencia de que la imagen fue construida correctamente (logs de build).
-Evidencia de ejecución del contenedor (logs de inicio y funcionamiento).
-Ejecución del proyecto
-Instrucciones detalladas para:
-Construir la imagen Docker.
-Ejecutar el contenedor.
-Correr los tests.
-Evidencia de ejecución exitosa (logs o capturas).
-README
-Contenido completo del README.md actualizado, copiado dentro del documento.
-La documentación debe permitir reproducir el proyecto sin información adicional.
+* Gestión de usuarios.
+* Gestión de mascotas.
+* Gestión de adopciones.
+* Documentación con Swagger.
+* Ejecución con Docker.
 
-Github de las clases: https://github.com/AleHts29/77315-programacion-backend_III
+---
+
+## Estructura del proyecto
+
+```bash
+ProyectoFinal/
+├── src/
+│   ├── config/
+│   │   ├── db.config.js
+│   │   ├── env.config.js
+│   │   └── swagger.config.js
+│   ├── controllers/
+│   │   ├── adoptions.controller.js
+│   │   ├── pets.controller.js
+│   │   └── users.controller.js
+│   ├── dao/
+│   │   ├── adoptions.dao.js
+│   │   ├── pets.dao.js
+│   │   └── users.dao.js
+│   ├── middlewares/
+│   │   └── error.middleware.js
+│   ├── models/
+│   │   ├── adoption.model.js
+│   │   ├── pet.model.js
+│   │   └── user.model.js
+│   ├── repositories/
+│   │   ├── adoptions.repository.js
+│   │   ├── pets.repository.js
+│   │   └── users.repository.js
+│   ├── routes/
+│   │   ├── adoptions.routes.js
+│   │   ├── pets.routes.js
+│   │   └── users.routes.js
+│   ├── services/
+│   │   ├── adoptions.service.js
+│   │   ├── pets.service.js
+│   │   └── users.service.js
+│   ├── utils/
+│   │   ├── errors/
+│   │   │   ├── AuthError.js
+│   │   │   ├── CustomError.js
+│   │   │   ├── NotFoundError.js
+│   │   │   └── ValidationError.js
+│   │   └── bcrypt.js
+│   ├── app.js
+│   └── server.js
+├── tests/
+│   └── adoptions.routes.test.js
+├── .dockerignore
+├── .env.development
+├── .env.example
+├── .env.production
+├── .gitignore
+├── Dockerfile
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
+---
+
+## Instalación
+
+### Clonar el repositorio
+
+```bash
+git clone https://github.com/Sebastian310-jpg/ProyectoFinal-CursoBackend3-Coderhouse.git
+cd ProyectoFinal-CursoBackend3-Coderhouse
+```
+
+### Instalar dependencias
+
+```bash
+npm install
+```
+
+## Variables de entorno
+
+Este proyecto utiliza distintos archivos de configuración según el entorno de ejecución.
+
+* `.env.development`: variables para desarrollo local.
+* `.env.production`: variables para producción o Docker.
+* `.env.example`: plantilla de referencia con las variables necesarias.
+
+### Configuración inicial
+
+Antes de ejecutar el proyecto, copiar el archivo de ejemplo y completa los valores correspondientes:
+
+```bash
+cp .env.example .env.development
+```
+
+## Variables de entorno requeridas
+
+| Variable   | Descripción                           |
+| ---------- | ------------------------------------- |
+| PORT       | Puerto donde se ejecuta la aplicación |
+| MONGO_URI  | URI de conexión a MongoDB             |
+
+---
+
+### Entornos disponibles
+
+* **Desarrollo**
+
+```bash
+npm run dev
+```
+
+* **Producción**
+
+```bash
+npm start
+```
+
+* **Docker**
+
+El contenedor recibe las variables de entorno al momento de ejecución.
+
+```bash
+docker run -e MONGO_URI="your_mongodb_connection_string" -p 8080:8080 sebst04/pet-adoption-api:latest
+```
+
+La API estará disponible en:
+
+```bash
+http://localhost:8080
+```
+
+---
+
+## Documentación Swagger
+
+Una vez iniciado el servidor, se puede acceder a la documentación en:
+
+```bash
+http://localhost:8080/api/docs
+```
+
+---
+
+## Ejecutar los tests
+
+Para correr todos los tests:
+
+```bash
+npm test
+```
+
+Para ejecutar únicamente los tests de adopciones:
+
+```bash
+npm test -- adoptions.routes.test.js
+```
+
+---
+
+## Docker
+
+### Construir la imagen
+
+```bash
+docker build -t sebst04/pet-adoption-api:latest .
+```
+
+### Ejecutar el contenedor
+
+```bash
+docker run -e MONGO_URI="your_mongodb_connection_string" -p 8080:8080 sebst04/pet-adoption-api:latest
+```
+
+La aplicación estará disponible en:
+
+```bash
+http://localhost:8080
+```
+
+---
+
+## Docker Hub
+
+La imagen pública se encuentra disponible en:
+
+```bash
+https://hub.docker.com/r/sebst04/pet-adoption-api
+```
+
+---
+
+## Scripts disponibles
+
+```bash
+npm run dev   # Ejecuta la aplicación en modo desarrollo
+npm start     # Ejecuta la aplicación en producción
+npm test      # Ejecuta todos los tests
+```
+
+---
+
+## Endpoints principales
+
+### Usuarios
+
+* GET `/api/users`
+* GET `/api/users/:uid`
+* POST `/api/users`
+* PUT `/api/users/:uid`
+* DELETE `/api/users/:uid`
+
+### Mascotas
+
+* GET `/api/pets`
+* GET `/api/pets/:pid`
+* GET `/api/pets/specie/:specie`
+* POST `/api/pets`
+* PUT `/api/pets/:pid`
+* DELETE `/api/pets/:pid`
+
+### Adopciones
+
+* GET `/api/adoptions`
+* GET `/api/adoptions/:aid`
+* POST `/api/adoptions`
+
+---
+
+## Autor
+
+Sebastian Stahler
+
+---
+
+## Licencia
+
+Este proyecto fue desarrollado con fines educativos como parte del curso de Backend 3 de Coderhouse.
