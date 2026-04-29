@@ -143,10 +143,10 @@ npm start
 
 * **Docker**
 
-El contenedor recibe las variables de entorno al momento de ejecución.
+El contenedor utiliza las variables definidas en `.env.production`:
 
 ```bash
-docker run -e MONGO_URI="your_mongodb_connection_string" -p 8080:8080 sebst04/pet-adoption-api:latest
+docker run --env-file .env.production -p 8080:8080 sebst04/pet-adoption-api:latest
 ```
 
 La API estará disponible en:
@@ -194,7 +194,7 @@ docker build -t sebst04/pet-adoption-api:latest .
 ### Ejecutar el contenedor
 
 ```bash
-docker run -e MONGO_URI="your_mongodb_connection_string" -p 8080:8080 sebst04/pet-adoption-api:latest
+docker run -p 8080:8080 --env-file .env.production sebst04/pet-adoption-api:latest
 ```
 
 La aplicación estará disponible en:
@@ -249,6 +249,7 @@ npm test      # Ejecuta todos los tests
 * GET `/api/adoptions`
 * GET `/api/adoptions/:aid`
 * POST `/api/adoptions`
+* DELETE `/api/adoptions/:aid`
 
 ---
 
