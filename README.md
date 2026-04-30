@@ -76,7 +76,6 @@ ProyectoFinal/
 │   └── adoptions.routes.test.js
 ├── .dockerignore
 ├── .env.development
-├── .env.example
 ├── .env.production
 ├── .gitignore
 ├── Dockerfile
@@ -108,15 +107,6 @@ Este proyecto utiliza distintos archivos de configuración según el entorno de 
 
 * `.env.development`: variables para desarrollo local.
 * `.env.production`: variables para producción o Docker.
-* `.env.example`: plantilla de referencia con las variables necesarias.
-
-### Configuración inicial
-
-Antes de ejecutar el proyecto, copiar el archivo de ejemplo y completa los valores correspondientes:
-
-```bash
-cp .env.example .env.development
-```
 
 ## Variables de entorno requeridas
 
@@ -124,6 +114,7 @@ cp .env.example .env.development
 | ---------- | ------------------------------------- |
 | PORT       | Puerto donde se ejecuta la aplicación |
 | MONGO_URI  | URI de conexión a MongoDB             |
+┼────────────────────────────────────────────────────┼
 
 ---
 
@@ -189,6 +180,12 @@ npm test -- adoptions.routes.test.js
 
 ```bash
 docker build -t sebst04/pet-adoption-api:latest .
+```
+
+### Descargar la imagen
+
+```bash
+docker pull sebst04/pet-adoption-api:latest
 ```
 
 ### Ejecutar el contenedor
