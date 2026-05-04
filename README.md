@@ -1,6 +1,6 @@
 # Pet Adoption API
 
-Este es mi proyecto final del curso Backend 3 de Coderhouse. Se trata de una API REST desarrollada con Node.js, Express y MongoDB que permite gestionar usuarios, mascotas y adopciones. Además, incluye documentación con Swagger, tests funcionales para `adoptions.routes.js` y dockerización para facilitar su ejecución y despliegue.
+Este es mi proyecto final que he realizado del curso Backend 3 de Coderhouse. Se trata de una API REST desarrollada con Node.js, Express y MongoDB que permite gestionar usuarios, mascotas y adopciones. Además, incluye documentación con Swagger, tests funcionales para `adoptions.routes.js` y dockerización para facilitar su ejecución y despliegue.
 
 ---
 
@@ -73,7 +73,9 @@ ProyectoFinal/
 │   ├── app.js
 │   └── server.js
 ├── tests/
-│   └── adoptions.routes.test.js
+│   ├── adoptions.routes.test.js
+│   ├── pets.routes.test.js
+│   └── users.routes.test.js
 ├── .dockerignore
 ├── .env.development
 ├── .env.production
@@ -108,7 +110,7 @@ Este proyecto utiliza distintos archivos de configuración según el entorno de 
 * `.env.development`: variables para desarrollo local.
 * `.env.production`: variables para producción o Docker.
 
-## Variables de entorno requeridas
+## Variables de entorno necesarias
 
 | Variable   | Descripción                           |
 | ---------- | ------------------------------------- |
@@ -134,13 +136,13 @@ npm start
 
 * **Docker**
 
-El contenedor utiliza las variables definidas en `.env.production`:
+El contenedor utiliza las variables de entorno definidas en `.env.production`:
 
 ```bash
 docker run --env-file .env.production -p 8080:8080 sebst04/pet-adoption-api:latest
 ```
 
-La API estará disponible en:
+La API va a estar disponible en:
 
 ```bash
 http://localhost:8080
@@ -150,7 +152,7 @@ http://localhost:8080
 
 ## Documentación Swagger
 
-Una vez iniciado el servidor, se puede acceder a la documentación en:
+Una vez iniciado el servidor, se puede acceder a la documentación desde:
 
 ```bash
 http://localhost:8080/api/docs
@@ -166,7 +168,7 @@ Para correr todos los tests:
 npm test
 ```
 
-Para ejecutar únicamente los tests de adopciones:
+Para correr solamente los tests de adopciones:
 
 ```bash
 npm test -- adoptions.routes.test.js
@@ -194,7 +196,7 @@ docker pull sebst04/pet-adoption-api:latest
 docker run -p 8080:8080 --env-file .env.production sebst04/pet-adoption-api:latest
 ```
 
-La aplicación estará disponible en:
+La aplicación correra en:
 
 ```bash
 http://localhost:8080
@@ -204,7 +206,7 @@ http://localhost:8080
 
 ## Docker Hub
 
-La imagen pública se encuentra disponible en:
+Link de la imagen publica:
 
 ```bash
 https://hub.docker.com/r/sebst04/pet-adoption-api
@@ -255,7 +257,3 @@ npm test      # Ejecuta todos los tests
 Sebastian Stahler
 
 ---
-
-## Licencia
-
-Este proyecto fue desarrollado con fines educativos como parte del curso de Backend 3 de Coderhouse.

@@ -71,6 +71,8 @@ describe('Adoptions API', () => {
       expect(response.statusCode).toBe(200);
       expect(response.body.status).toBe('success');
       expect(response.body.payload._id).toBe(createdAdoption._id.toString());
+      expect(response.body.payload.owner._id).toBe(testUser._id.toString());
+      expect(response.body.payload.pet._id).toBe(testPet._id.toString());
     })
 
     test('Should return error 404 if adoption does not exists', async () => {

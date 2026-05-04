@@ -38,6 +38,8 @@ class PetsService {
     if(!petId) throw new ValidationError('Pet ID is required');
 
     const updatedPet = await this.petRepository.updatePet(petId, updateData);
+    if(!updatedPet) throw new NotFoundError('Pet not found');
+
     return updatedPet;
   }
 
@@ -45,6 +47,8 @@ class PetsService {
     if(!petId) throw new ValidationError('Pet ID is required');
 
     const deletedPet = await this.petRepository.deletePet(petId);
+    if(!deletedPet) throw new NotFoundError('Pet not found');
+
     return deletedPet;
   }
 }
